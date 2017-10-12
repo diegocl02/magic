@@ -1,0 +1,103 @@
+html,body {
+    padding:0;
+    margin:0;
+    height:100%;
+}
+
+body {
+    width:100%;
+}
+
+
+[data-reactroot]{
+  height: 100%;
+}
+
+.mscreen {
+  width: calc(100% - 20px);
+  height: calc(50% - 22px);
+  padding: 10px 10px 10px 10px;
+}
+
+.divisor{
+  height: 4px;
+  background-color: gray;
+}
+
+.player {
+  background: no-repeat url("./img/player.png") 50% / 100%;
+  position: relative;
+  height: 38vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+
+.tmp{
+  position: absolute;
+  top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+
+.counterplayer{
+  height: 20%;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 10vh;
+}
+
+.buttonup{
+  width: 2vw;
+  height: 2vw;
+  /*border: 1px black solid;*/
+  /*border-radius: 2px;*/
+  text-align : center;
+}
+
+.buttondw{
+  width: 2vw;
+  height: 2vw;
+  /*border: 1px black solid;*/
+  /*border-radius: 2px;*/
+  text-align: center;
+}
+
+.buttonc{
+  width: 100%;
+  height: 100%;
+  font-size: 1.5vw;
+  text-align: center;
+}
+
+.counterholder{
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerplayer{
+  position:relative;
+  vertical-align: middle;
+  height: 20%;
+  text-align: center;
+}
+
+.spantext{
+  font-size: 1.5vh;
+  position:absolute;
+  top:50%;
+  left: 50%;
+  height: 100%;
+  width: 80%;
+  margin: -6.5% 0 0 -40%;
+}
+
+
+
+#root{
+  height: 100%;
+}
