@@ -2,76 +2,74 @@
 import React, { Component } from 'react';
 import './App.css';
 import Player from './player';
+import {GameSetup} from './game/gamesetup'
 
 class App extends Component {
+    constructor(props){
+      super(props);
+      this.state = { winnerPopUp: false, name:null};
+    }
+
+    setWinnerWithModal(name) {
+      this.setState({winnerPopUp: true, name});
+      //this.props.setWinner(this.props.playername);}
+    }
+
+    createModal(){
+      return(
+        <div className='modalwinconfirmation'  onClick={
+          () => this.setState({winnerPopUp: false,name:null})
+        }>
+          <div className='modalwincontent'>
+              <button className='buttonconfirm' onClick={()=>{
+                this.setState({winnerPopUp: false,name:null});
+                this.props.setWinner(this.state.name);
+              }}>
+              {this.state.name}   w o n?
+            </button>
+          </div>
+        </div>
+      )
+    }
+
   render() {
-    return (
+      if(!(this.props.players[0].turn) && !(this.props.players[1].turn)){
+        return(
+          <GameSetup
+            players={this.props.players}
+            setTurn={this.props.setTurn}></GameSetup>
+        )
+      }
+      else return(
       <div>
-        <div className="mscreen">
-          <Player/>
-        </div>
+        {this.state.winnerPopUp ? this.createModal() : null}
+        {this.createPlayerCard(this.props.players[0],"mscreen1",true)}
         <div className="divisor"></div>
-        <div className="mscreen">
-          <Player/>
-        </div>
-
+        {this.createPlayerCard(this.props.players[1],"mscreen2",false)}
       </div>
-
     );
   }
-}
 
+  createPlayerCard(player, clase, isrotate){
+    const content = <Player
+      player={player}
+      setWinner={()=>this.setWinnerWithModal(player.name)}
+      changeLife={this.props.changeLife}
+    />;
 
-/// INITIAL STATE
-var initstate = {
-   player: [
-     {
-       name: 'player1',
-       count: 20,
-       winner: false
-     },
-     {
-       name: 'player2',
-       count: 20,
-       winner: false
-     },
-   ]
-}
-
-
-/// REDUCER
-function countReducer(currentState, action){
-  if(typeof currentState === 'undefined'){
-    return initstate;
-  }
-
-  var nextstate = {...currentState};
-
-  switch(action.type){
-    case 'ADD_PLAYER1':
-      nextstate.player[0].count = currentState.player[0].count + 1;
-      return nextstate;
-    case 'MINUS_PLAYER1':
-      nextstate.player[0].count = currentState.player[0].count - 1;
-      return nextstate;
-    case 'ADD_PLAYER2':
-      nextstate.player[1].count = currentState.player[1].count + 1;
-      return nextstate;
-    case 'MINUS_PLAYER2':
-      nextstate.player[1].count = currentState.player[1].count - 1;
-      return nextstate;
-    default:
-      return currentState;
+    if(isrotate){
+      return(<div className={clase}>
+        <div className="playerrotated">
+          {content}
+        </div>
+        </div>)
+    } else {
+      return(<div className={clase}>
+        {content}
+      </div>)
+    }
   }
 }
-
-//// FUNCTION RENDER
-
-var actionadd1 = { type:'ADD_PLAYER1' };
-var actionmin1 = { type:'MINUS_PLAYER1'};
-var actionadd2 = { type:'ADD_PLAYER2' };
-var actionmin2 = { type:'MINUS_PLAYER2'};
-
 
 
 export default App;

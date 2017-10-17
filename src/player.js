@@ -4,6 +4,8 @@ import './App.css';
 import CounterCom from './player/CounterCom';
 import Header from './player/Header';
 import Counter from './player/Counter';
+import Wins from './player/Wins';
+import BottomCom from './player/BottomCom';
 
 
 export default class Player extends Component{
@@ -11,9 +13,19 @@ export default class Player extends Component{
     return(
       <div className="player">
         <div className="tmp">
-          <Header/>
-          <Counter/>
-          <CounterCom/>
+          <Header
+            name={this.props.player.name}
+            turn={this.props.player.turn}/>
+          <Counter
+            life={this.props.player.life}/>
+          <Wins
+            wins={this.props.player.wins}/>
+          <CounterCom
+            changeLife={this.props.changeLife}
+            playername={this.props.player.name}/>
+          <BottomCom
+            setWinner={this.props.setWinner}
+            playername={this.props.player.name}/>
         </div>
       </div>
     )
