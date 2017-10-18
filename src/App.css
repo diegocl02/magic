@@ -45,7 +45,7 @@ body {
 }
 
 .player {
-  background: no-repeat url("./img/player.png") 50% / 100%;
+  background: no-repeat url('./img/player.png') 50% / 100%;
   position: relative;
   height: 38vh;
   width: 28vh;  border: 1px gray solid;
