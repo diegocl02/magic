@@ -73,6 +73,26 @@ body {
   text-align: center;
 }
 
+.ratedplayer{
+  text-decoration: none;
+}
+
+.ranktext{
+  font-size: 1.2vh;
+}
+
+.spantext{
+  font-size: 1.5vh;
+  font-style: courier;
+  font-weight: bold;
+  position:absolute;
+  top:50%;
+  left: 50%;
+  height: 100%;
+  width: 80%;
+  margin: -4% 0 0 -40%;
+}
+
 .counterplayer{
   height: 40%;
   vertical-align: middle;
@@ -151,17 +171,6 @@ body {
   height: 50%;
 }
 
-.spantext{
-  font-size: 1.5vh;
-  font-style: courier;
-  font-weight: bold;
-  position:absolute;
-  top:50%;
-  left: 50%;
-  height: 100%;
-  width: 80%;
-  margin: -4% 0 0 -40%;
-}
 
 .spanbuttonwin{
   position: absolute;

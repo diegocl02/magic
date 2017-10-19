@@ -15,7 +15,11 @@ export default class Player extends Component{
         <div className="tmp">
           <Header
             name={this.props.player.name}
-            turn={this.props.player.turn}/>
+            turn={this.props.player.turn}
+            rankingName={this.props.player.rankingname}
+            rankingNumber={this.props.player.ranking}
+            totalWins={this.props.player.totalwins}
+          />
           <Counter
             life={this.props.player.life}/>
           <Wins

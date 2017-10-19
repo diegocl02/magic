@@ -9,7 +9,11 @@ export default class Header extends Component{
     return(
       <div className='headerplayer'>
         <div className='spantext'>
-          {this.props.name} {(this.props.turn) ? <FontAwesome name='star'/> : null}
+          <a href="#" className="ratedplayer" title={
+            "Rank: "+this.props.rankingName+"\n Games Won: "+this.props.totalWins
+          }>{this.props.name}</a>
+           {" "}{(this.props.turn) ? <FontAwesome name='star'/> : null}
+          <h className="ranktext">{ " rank: " }{this.props.rankingNumber} </h>
         </div>
       </div>
     );

@@ -8,8 +8,18 @@ var config = {
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
+
     filename: 'bundle.js',
     publicPath: "/"
+  },
+  resolve: {
+    extensions: ['.js', '.json']
+  },
+  node : {
+    console: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
   module : {
 
@@ -26,6 +36,7 @@ var config = {
         { test: /\.png$/, loader: "url-loader"},
         { test: /\.jpg$/, loader: "url-loader"},
         { test: /\.gif$/, loader: "url-loader"},
+        { test: /\.json$/, loader: 'json-loader' },
         {
           test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
           // Limiting the size of the woff fonts breaks font-awesome ONLY for the extract text plugin
@@ -38,7 +49,8 @@ var config = {
         },
     ]
 
-  }
+  },
+
 };
 
 module.exports = config;
