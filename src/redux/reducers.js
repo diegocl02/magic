@@ -34,20 +34,30 @@ function getRandomInteger(min, max){
 }
 
 function updateWins(userid){
-  const rp = require('request-promise');
-  console.log(userid);
-  const options = {
-    method: 'POST',
-    uri: 'http://localhost:3000/updatewins',
-    body: {
-      userid: userid,
-    },
-    json: true
-  }
-  rp(options).then(function(htmlString){
+  var AjaxPromise = require('ajax-promise');
+  AjaxPromise
+  .post('/updatewins', {userid: userid})
+  .then(function (response) {
     console.log("winupdated");
-  }).catch(function(err){
-    console.log(err);
   })
+  .catch(function (err) {
+    console.log('errors in response', err);
+  })
+
+  // const rp = require('request-promise');
+  // console.log(userid);
+  // const options = {
+  //   method: 'POST',
+  //   uri: 'http://localhost:3000/updatewins',
+  //   body: {
+  //     userid: userid,
+  //   },
+  //   json: true
+  // }
+  // rp(options).then(function(htmlString){
+  //   console.log("winupdated");
+  // }).catch(function(err){
+  //   console.log(err);
+  // })
 
 }

@@ -24,7 +24,7 @@ app.get('/about', function (req, res) {
 
 /////Updates Number of total Wins
 app.post('/updatewins', function(req,res){
-  console.log(req.body);
+  console.log(req.body.userid);
   const userid = req.body.userid;
   const query = 'update User set wins=wins +1'+
   ' where userId='+userid+';'
@@ -40,7 +40,8 @@ app.post('/updatewins', function(req,res){
 
   connection.query(query, function (err, rows, fields) {
     if (err) throw err;
-    res.send('Wins Succesfull Updated');
+    console.log(rows);
+    res.send(rows);
   })
 
   connection.end();

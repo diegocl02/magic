@@ -26,28 +26,47 @@ var initialstate = {
 }
 
 function getInitialState(state){
-  const rp = require('request-promise');
-  const options = {
-      uri: 'http://localhost:3000/getinitialstate',
-  };
-  rp(options)
-      .then(function (htmlString) {
-        const ranking = JSON.parse(htmlString);
-        for(var r of ranking){
-          for(var p of state.players){
-            if(r.userid==p.userid){
-              p.ranking=r.rankingNumber;
-              p.rankingname= r.rankingName;
-              p.name= r.name;
-              p.nickname= r.nickname;
-              p.totalwins= r.wins;
+    var AjaxPromise = require('ajax-promise');
+    AjaxPromise
+    .get('/getinitialstate')
+    .then(function (response) {
+      console.log(response);
+      const ranking = response;
+            for(var r of ranking){
+              for(var p of state.players){
+                if(r.userid==p.userid){
+                  p.ranking=r.rankingNumber;
+                  p.rankingname= r.rankingName;
+                  p.name= r.name;
+                  p.nickname= r.nickname;
+                  p.totalwins= r.wins;
+                }
+              }
             }
-          }
-        }
-      })
-      .catch(function (err) {
-          console.log('error');
-      });
+    })
+
+  // const rp = require('request-promise');
+  // const options = {
+  //     uri: 'http://localhost:3000/getinitialstate',
+  // };
+  // rp(options)
+  //     .then(function (htmlString) {
+  //       const ranking = JSON.parse(htmlString);
+  //       for(var r of ranking){
+  //         for(var p of state.players){
+  //           if(r.userid==p.userid){
+  //             p.ranking=r.rankingNumber;
+  //             p.rankingname= r.rankingName;
+  //             p.name= r.name;
+  //             p.nickname= r.nickname;
+  //             p.totalwins= r.wins;
+  //           }
+  //         }
+  //       }
+  //     })
+  //     .catch(function (err) {
+  //         console.log('error');
+  //     });
 }
 
 export function createEmptyAppState(){
