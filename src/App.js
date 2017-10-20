@@ -113,7 +113,7 @@ class App extends Component {
                     this.state.name,parseInt(this.state.counter),this.state.tokenid,this.state.tokentype);
                   this.setState({createTokenPopUp: false});
                 console.log(this.state.name,parseInt(this.state.counter),this.state.tokenid,this.state.tokentype)}
-                }>Create Token</button>
+              }>Create Token!</button>
               </div>
 
           </div>

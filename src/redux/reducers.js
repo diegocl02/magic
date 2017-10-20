@@ -26,20 +26,19 @@ export function reducer(currentState, action){
     case 'ADD_TOKEN':
       const {counter,counterid,tokentype} = action.payload;
       const player2add = action.payload.playername;
-      nextstate.players.find(p => p.name==player2add).tokens.push(
+      nextstate.players.find(p => p.name==player2add).tokens[counterid]=
         {
           tokenid: counterid,
           tokencounter: counter,
           tokentype: tokentype,
-        }
-      );
+        };
+
       return nextstate;
     case 'CHANGE_TOKEN_COUNTER':
       const playernamE = action.payload.playername;
       const counteriD = action.payload.counterid;
       const changE = action.payload.change;
       nextstate.players.find(p => p.name==playernamE).tokens[counteriD].tokencounter += changE;
-      console.log(nextstate.players);
       return nextstate;
     case 'REMOVE_TOKEN':
       const playernamEE = action.payload.playername;
