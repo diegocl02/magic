@@ -23,6 +23,24 @@ export function reducer(currentState, action){
       const ran = getRandomInteger(0,1);
       nextstate.players[ran].turn=true;
       return nextstate;
+    case 'ADD_TOKEN':
+      const {counter,counterid} = action.payload;
+      const player2add = action.payload.playername;
+      nextstate.players.find(p => p.name==player2add).tokens.push(
+        {
+          tokenid: counterid,
+          tokencounter: counter,
+          tokentype: "minitoken",
+        }
+      );
+      return nextstate;
+    case 'CHANGE_TOKEN_COUNTER':
+      const playernamE = action.payload.playername;
+      const counteriD = action.payload.counterid;
+      const changE = action.payload.change;
+      nextstate.players.find(p => p.name==playernamE).tokens[counteriD].tokencounter += changE;
+      console.log(nextstate.players);
+      return nextstate;
     default:
       return currentState;
 

@@ -11,7 +11,7 @@ import BottomCom from './player/BottomCom';
 export default class Player extends Component{
   render(){
     return(
-      <div className="player">
+      <div className={this.props.classplayer}>
         <div className="tmp">
           <Header
             name={this.props.player.name}

@@ -22,6 +22,8 @@ function appStateToProps(state){
     changeLife: (change,playername) => store.dispatch(Actions.changeLife(change,playername)),
     setWinner: (playername) => store.dispatch(Actions.setWinner(playername)),
     setTurn: () => store.dispatch(Actions.setTurn()),
+    addToken: (playername,counter,counterid) => store.dispatch(Actions.addToken(playername,counter,counterid)),
+    changeTokenCounter: (playername,counterid,change) => store.dispatch(Actions.changeTokenCounter(playername,counterid,change)),
     ...state
   }
 }

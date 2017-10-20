@@ -20,7 +20,7 @@ export class GameSetup extends Component{
           <button className='buttonrandom' onClick={
             () => this.props.setTurn()
           }>
-            Get who start randomly!
+            Get who start randomly!!
           </button>
         </div>
         <div className='infosetup'>

@@ -30,6 +30,7 @@ body {
   width: calc(100% - 20px);
   height: calc(50% - 22px);
   padding: 10px 10px 10px 10px;
+  display: flex;
   /*transform: rotate(0.5turn);*/
 }
 
@@ -37,6 +38,7 @@ body {
   width: calc(100% - 20px);
   height: calc(50% - 22px);
   padding: 10px 10px 10px 10px;
+  display: flex;
 }
 
 .divisor{
@@ -44,8 +46,16 @@ body {
   background-color: gray;
 }
 
-.player {
-  background: no-repeat url('./img/player.png') 50% / 100%;
+.player1 {
+  background: no-repeat url('./img/greencard.png') 50% / 100%;
+  position: relative;
+  height: 38vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+.player2 {
+  background: no-repeat url('./img/redcard.png') 50% / 100%;
   position: relative;
   height: 38vh;
   width: 28vh;  border: 1px gray solid;
@@ -90,7 +100,7 @@ body {
   left: 50%;
   height: 100%;
   width: 80%;
-  margin: -4% 0 0 -40%;
+  margin: -2.8% 0 0 -40%;
 }
 
 .counterplayer{
@@ -121,7 +131,7 @@ body {
 }
 
 .winsholder{
-  height: 8%;
+  height: 9%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -130,7 +140,7 @@ body {
 }
 
 .counterholder{
-  height: 24%;
+  height: 23%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -174,8 +184,8 @@ body {
 
 .spanbuttonwin{
   position: absolute;
-  left: 68%;
-  top: 13%;
+  left: 66%;
+  top: -8%;
   width: 30%;
   height: 70%;
 }
@@ -253,6 +263,38 @@ body {
 
 .buttonrandom{
   align-items: center;
+}
+
+/* Token Css*/
+.tokenholder{
+  position: relative;
+  padding-left: 2%;
+}
+
+.tokencom{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 10%;
+}
+
+.buttontoken{
+  padding-right: 5%;
+  width: 40%;
+  font-size: 1.5vh;
+}
+
+.inputtoken{
+  width: 30%;
+}
+
+.countertoken{
+  width: 100%;
+}
+
+.minitoken{
+  border: 1px black solid;
+  width: 20%;
+  margin-bottom: 5%;
 }
 
 #root{

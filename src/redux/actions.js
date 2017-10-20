@@ -26,3 +26,27 @@ export function setTurn(){
     type:'SET_TURN',
   };
 }
+
+// to ADD Token for a player
+export function addToken(playername,counter,counterid){
+  return {
+    type:'ADD_TOKEN',
+    payload: {
+      playername,
+      counter,
+      counterid
+    }
+  };
+}
+
+// change counter
+export function changeTokenCounter(playername,counterid,change){
+  return {
+    type:'CHANGE_TOKEN_COUNTER',
+    payload: {
+      playername,
+      change,
+      counterid
+    }
+  };
+}

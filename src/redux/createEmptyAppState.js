@@ -9,7 +9,9 @@ var initialstate = {
     turn: false,
     ranking: null,
     rankingname: null,
-    totalwins: null
+    totalwins: null,
+    tokens: [
+    ]
   },
   {
     userid: 2,
@@ -20,7 +22,9 @@ var initialstate = {
     turn: false,
     ranking: null,
     rankingname: null,
-    totalwins: null
+    totalwins: null,
+    tokens: [
+    ]
   },
 ]
 }
