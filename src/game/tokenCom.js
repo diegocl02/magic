@@ -5,12 +5,7 @@ import {Token} from './token';
 export class TokenCom extends Component {
   constructor(props){
     super(props);
-    this.state = { counter: '', counterid: 0};
-    this.setText = this.setText.bind(this);
-  }
-  setText(event){
-    this.setState({counter: event.target.value});
-    console.log(this.state.counterid);
+    this.state = { counterid: 0};
   }
 
   render(){
@@ -19,18 +14,12 @@ export class TokenCom extends Component {
         <div className='tokencom'>
           <div className='buttontoken'>
             <button onClick={() => {
-              this.props.addToken(this.props.playerName,parseInt(this.state.counter),this.state.counterid);
+              this.props.createToken(this.state.counterid);
               this.state.counterid++;
             }} >Add Token!</button>
           </div>
-          <div className='inputtoken'>
-            <input type="text" className="countertoken"
-              placeholder="# Counters"
-              value={this.state.counter}
-              onChange={this.setText}></input>
-          </div>
         </div>
-        <div>
+        <div className='tokencards'>
           {this.props.tokens.map(token =>
             <Token
               changeTokenCounter={this.props.changeTokenCounter}

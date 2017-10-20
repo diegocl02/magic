@@ -16,6 +16,7 @@
     "react-dom": "^15.6.1",
     "react-fontawesome": "^1.6.1",
     "react-scripts": "1.0.13",
+    "react-simple-dropdown": "^3.2.0",
     "redux": "^3.7.2",
     "request": "^2.83.0",
     "request-promise": "^4.2.2",

@@ -10,6 +10,7 @@ export function reducer(currentState, action){
       var useridwinner;
       for(var p of nextstate.players){
         p.life = 20;
+        p.tokens = [];
         p.turn=!p.turn;
         if(p.name===namewinner){
           p.wins += 1;
@@ -17,20 +18,19 @@ export function reducer(currentState, action){
         }
       }
       updateWins(useridwinner);
-      console.useridwinner;
       return nextstate;
     case 'SET_TURN':
       const ran = getRandomInteger(0,1);
       nextstate.players[ran].turn=true;
       return nextstate;
     case 'ADD_TOKEN':
-      const {counter,counterid} = action.payload;
+      const {counter,counterid,tokentype} = action.payload;
       const player2add = action.payload.playername;
       nextstate.players.find(p => p.name==player2add).tokens.push(
         {
           tokenid: counterid,
           tokencounter: counter,
-          tokentype: "minitoken",
+          tokentype: tokentype,
         }
       );
       return nextstate;
@@ -40,6 +40,11 @@ export function reducer(currentState, action){
       const changE = action.payload.change;
       nextstate.players.find(p => p.name==playernamE).tokens[counteriD].tokencounter += changE;
       console.log(nextstate.players);
+      return nextstate;
+    case 'REMOVE_TOKEN':
+      const playernamEE = action.payload.playername;
+      const tokenid = action.payload.tokenid;
+      nextstate.players.find(p => p.name==playernamEE).tokens.splice(tokenid,1);
       return nextstate;
     default:
       return currentState;

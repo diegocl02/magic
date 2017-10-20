@@ -8,11 +8,23 @@ export class Token extends Component{
   }
   render(){
     return(
-      <div className={this.props.tokenType}
-        onClick={ () => {this.props.setToken(
-        this.props.tokenId)}}
-      >
-        {this.props.tokenCounter}
+      <div className="tokencardholder">
+        <div className={"token"+this.props.tokenType}
+          onClick={ () => {this.props.setToken(
+            this.props.tokenId)}}
+            >
+              <div className="tokencounter">
+                <div className="tokencounterspan">
+                  {this.props.tokenCounter}
+                </div>
+              </div>
+
+              <div className="tokentype">
+                <div className="tokentypespan">
+                  {this.props.tokenType}
+                </div>
+              </div>
+            </div>
       </div>
     )
   }

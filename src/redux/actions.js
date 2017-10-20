@@ -28,13 +28,14 @@ export function setTurn(){
 }
 
 // to ADD Token for a player
-export function addToken(playername,counter,counterid){
+export function addToken(playername,counter,counterid,tokentype){
   return {
     type:'ADD_TOKEN',
     payload: {
       playername,
       counter,
-      counterid
+      counterid,
+      tokentype
     }
   };
 }
@@ -47,6 +48,17 @@ export function changeTokenCounter(playername,counterid,change){
       playername,
       change,
       counterid
+    }
+  };
+}
+
+// remove token
+export function removeToken(playername,tokenid){
+  return {
+    type:'REMOVE_TOKEN',
+    payload: {
+      playername,
+      tokenid
     }
   };
 }

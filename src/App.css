@@ -68,6 +68,11 @@ body {
   transform: rotate(0.5turn);
 }
 
+.playernotrotated {
+  height: 38vh;
+  width: 28vh;
+}
+
 .tmp{
   position: absolute;
   top: 0;
@@ -185,7 +190,7 @@ body {
 .spanbuttonwin{
   position: absolute;
   left: 66%;
-  top: -8%;
+  top: -6%;
   width: 30%;
   height: 70%;
 }
@@ -212,6 +217,23 @@ body {
 
 .modalwincontent{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.modalwincontentbuttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
+  width: 20%;
+}
+
+
+.modalwincontentcreatetoken{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
@@ -283,18 +305,120 @@ body {
   font-size: 1.5vh;
 }
 
-.inputtoken{
-  width: 30%;
-}
 
 .countertoken{
   width: 100%;
+}
+
+.countertoken::placeholder{
+  font-size: 1.2vh;
 }
 
 .minitoken{
   border: 1px black solid;
   width: 20%;
   margin-bottom: 5%;
+  display: flex;
+  align-items: center;
+}
+
+.inputtokentype{
+  width: 30%;
+  padding-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.inputcounter{
+  width: 30%;
+  padding-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.inputcounterinner{
+  width: 30%;
+}
+
+.buttonconfirmtoken{
+  width: 30%;
+  padding-bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.tokencards{
+  display:flex;
+}
+.tokencardholder{
+  margin-right: 1%;
+}
+.tokencreature{
+  background: no-repeat url('./img/creature.png') 50% / 100%;
+  height: 19vh;
+  width: 14vh;
+}
+.tokenplaneswalker{
+  background: no-repeat url('./img/planeswalker.png') 50% / 100%;
+  height: 19vh;
+  width: 14vh;
+}
+.tokenartifact{
+  background: no-repeat url('./img/artifact.png') 50% / 100%;
+  height: 19vh;
+  width: 14vh;
+}
+.tokenenchantment{
+  background: no-repeat url('./img/enchantment.png') 50% / 100%;
+  height: 19vh;
+  width: 14vh;
+}
+
+.tokencounter{
+  position: relative;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tokencounterspan{
+  font-size: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tokentype{
+  position: relative;
+  width: 100%;
+  height: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tokentypespan{
+  font-size: 1.3vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttontokenup{
+  height: 50%;
+  width: 50%;
+  font-size: 4vh;
+  margin-right:5%;
+}
+.buttontokendw{
+  height: 50%;
+  width: 50%;
+  font-size: 4vh;
 }
 
 #root{
