@@ -1,7 +1,10 @@
 var initialstate = {
+  gametype: null,
+  someonewon: false,
    players: [
   {
     userid: 1,
+    color: '',
     name: null,
     nickname: null,
     life: 20,
@@ -15,6 +18,7 @@ var initialstate = {
   },
   {
     userid: 2,
+    color: '',
     name: null,
     nickname: null,
     life: 20,

@@ -4,6 +4,15 @@ import '../App.css';
 import dice from '../img/alivedice.gif'
 
 export class GameSetup extends Component{
+  constructor(props){
+    super(props);
+    this.state =  {
+      gametype: '',
+      player1color: '',
+      player2color: '',
+    }
+  }
+
   render(){
     return(
       <div className='setupholder'>
@@ -17,8 +26,33 @@ export class GameSetup extends Component{
           <img className='randomgif' src={dice}></img>
         </div>
         <div className='randomholder'>
+          <select className='selectplayercolor' value={this.state.player1color}
+            onChange={(e) => this.setState({player1color: e.target.value})}>
+            <option value="" disabled selected>Player 1 color</option>
+            <option value="white">White</option>
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+          </select>
+          <select className='selectplayercolor' value={this.state.player2color}
+            onChange={(e) => this.setState({player2color: e.target.value})}>
+            <option value="" disabled selected>Player 2 color</option>
+            <option value="white">White</option>
+            <option value="green">Green</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+          </select>
+          <select className='selectgametype' value={this.state.gametype}
+            onChange={(e) => this.setState({gametype: e.target.value})}>
+            <option value="" disabled selected>Game Type</option>
+            <option value="1">Best of 1</option>
+            <option value="2">Best of 3</option>
+            <option value="3">Best of 5</option>
+          </select>
           <button className='buttonrandom' onClick={
-            () => this.props.setTurn()
+            () => this.props.setTurn(parseInt(this.state.gametype),this.state.player1color,this.state.player2color)
           }>
             Get who start randomly!!
           </button>

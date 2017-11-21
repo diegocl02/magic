@@ -22,7 +22,7 @@ export class TokenCom extends Component {
         <div className='tokencards'>
           {this.props.tokens.map(token =>
             <Token
-              changeTokenCounter={this.props.changeTokenCounter}
+              // changeTokenCounter={this.props.changeTokenCounter}
               playerName={this.props.playerName}
               tokenId={token.tokenid}
               tokenType={token.tokentype}

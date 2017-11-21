@@ -21,10 +21,10 @@ function appStateToProps(state){
   return {
     changeLife: (change,playername) => store.dispatch(Actions.changeLife(change,playername)),
     setWinner: (playername) => store.dispatch(Actions.setWinner(playername)),
-    setTurn: () => store.dispatch(Actions.setTurn()),
+    setTurn: (gametype,color1,color2) => store.dispatch(Actions.setTurn(gametype,color1,color2)),
     addToken: (playername,counter,counterid,tokentype) => store.dispatch(Actions.addToken(playername,counter,counterid,tokentype)),
     changeTokenCounter: (playername,counterid,change) => store.dispatch(Actions.changeTokenCounter(playername,counterid,change)),
-    removeToken: (playername,tokenid) => store.dispatch(Actions.removeToken(playername,tokenid)), 
+    removeToken: (playername,tokenid) => store.dispatch(Actions.removeToken(playername,tokenid)),
     ...state
   }
 }

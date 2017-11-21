@@ -26,25 +26,25 @@ app.get('/about', function (req, res) {
 app.post('/updatewins', function(req,res){
   console.log(req.body.userid);
   const userid = req.body.userid;
-  const query = 'update User set wins=wins +1'+
-  ' where userId='+userid+';'
+  const query = 'update User set gamesWon=gamesWon +1, ranking=ranking +3'+
+  ' where userId='+userid+';';
   const mysql = require('mysql')
   const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'crayon',
-    password : 'crayola123',
-    database : 'magicboard'
+    host     : 'us-cdbr-iron-east-05.cleardb.net',
+    user     : 'b7cfe3e5b978a2',
+    password : '1b99fff3',
+    database : 'heroku_6702d303f45788f'
   });
 
   connection.connect();
 
   connection.query(query, function (err, rows, fields) {
+    connection.destroy();
     if (err) throw err;
     console.log(rows);
     res.send(rows);
   })
 
-  connection.end();
 })
 
 ////Get list of users
@@ -52,7 +52,7 @@ app.post('/updatewins', function(req,res){
 app.get('/getinitialstate', function (req, res) {
 
   const query='select userId userid,u.name name, u.nickname,rt.name rankingName, '+
-      'u.ranking rankingNumber,wins '+
+      'u.ranking rankingNumber,gamesWon '+
       'from User u '+
       'join RankingType rt '+
       'where u.ranking between floor and ceil; '
@@ -60,20 +60,19 @@ app.get('/getinitialstate', function (req, res) {
 
   const mysql = require('mysql')
   const connection = mysql.createConnection({
-    host     : 'localhost',
-    user     : 'crayon',
-    password : 'crayola123',
-    database : 'magicboard'
+    host     : 'us-cdbr-iron-east-05.cleardb.net',
+    user     : 'b7cfe3e5b978a2',
+    password : '1b99fff3',
+    database : 'heroku_6702d303f45788f'
   });
 
   connection.connect();
 
   connection.query(query, function (err, rows, fields) {
+    connection.destroy();
     if (err) throw err;
     res.send(rows);
   })
-
-  connection.end();
 
 })
 

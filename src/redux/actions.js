@@ -21,9 +21,12 @@ export function setWinner(playername){
 }
 
 // to chose starting player randomly
-export function setTurn(){
+export function setTurn(gametype,color1,color2){
   return {
     type:'SET_TURN',
+    payload:{
+      gametype,color1,color2
+    }
   };
 }
 

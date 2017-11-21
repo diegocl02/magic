@@ -15,13 +15,23 @@ export function reducer(currentState, action){
         if(p.name===namewinner){
           p.wins += 1;
           useridwinner=p.userid;
+          if(p.wins==nextstate.gametype){
+            updateWins(useridwinner);
+            nextstate.someonewon=p.name;
+          }
         }
       }
-      updateWins(useridwinner);
       return nextstate;
     case 'SET_TURN':
+      const {gametype,color1,color2} = action.payload;
       const ran = getRandomInteger(0,1);
       nextstate.players[ran].turn=true;
+      nextstate.gametype=gametype;
+      nextstate.players[0].color=color1;
+      nextstate.players[0].wins=0;
+      nextstate.players[1].color=color2;
+      nextstate.players[1].wins=0;
+      nextstate.someonewon=false;
       return nextstate;
     case 'ADD_TOKEN':
       const {counter,counterid,tokentype} = action.payload;

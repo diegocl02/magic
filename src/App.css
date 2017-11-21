@@ -46,30 +46,62 @@ body {
   background-color: gray;
 }
 
-.player1 {
-  background: no-repeat url('./img/greencard.png') 50% / 100%;
+.player {
+  background: no-repeat url('./img/clearcard.png') 50% / 100%;
   position: relative;
-  height: 38vh;
+  height: 38.5vh;
   width: 28vh;  border: 1px gray solid;
   border-radius: 8px;
 }
 
-.player2 {
+.greenplayer {
+  background: no-repeat url('./img/greencard.png') 50% / 100%;
+  position: relative;
+  height: 38.5vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+.redplayer {
   background: no-repeat url('./img/redcard.png') 50% / 100%;
   position: relative;
-  height: 38vh;
+  height: 38.5vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+.blueplayer {
+  background: no-repeat url('./img/bluecard.png') 50% / 100%;
+  position: relative;
+  height: 38.5vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+.blackplayer {
+  background: no-repeat url('./img/blackcard.png') 50% / 100%;
+  position: relative;
+  height: 38.5vh;
+  width: 28vh;  border: 1px gray solid;
+  border-radius: 8px;
+}
+
+.whiteplayer {
+  background: no-repeat url('./img/whitecard.png') 50% / 100%;
+  position: relative;
+  height: 38.5vh;
   width: 28vh;  border: 1px gray solid;
   border-radius: 8px;
 }
 
 .playerrotated {
-  height: 38vh;
+  height: 38.5vh;
   width: 28vh;
   transform: rotate(0.5turn);
 }
 
 .playernotrotated {
-  height: 38vh;
+  height: 38.5vh;
   width: 28vh;
 }
 
@@ -227,7 +259,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 20%;
-  width: 20%;
+  width: 40%;
 }
 
 
@@ -263,6 +295,8 @@ body {
 }
 
 .randomholder{
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -284,7 +318,10 @@ body {
 }
 
 .buttonrandom{
-  align-items: center;
+  margin-bottom: 10%;
+  height: 6vh;
+  width: 45vw;
+  font-size: 4vw;
 }
 
 /* Token Css*/
@@ -323,23 +360,35 @@ body {
 }
 
 .inputtokentype{
-  width: 30%;
-  padding-bottom: 5%;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 10%;
+  height: 5vh;
+  width: 45vw;
+  font-size: 4vw;
 }
 
 .inputcounter{
-  width: 30%;
-  padding-bottom: 5%;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
+  margin-bottom: 10%;
+  height: 5vh;
+  width: 45vw;
+  font-size: 4vw;
 }
 
 .inputcounterinner{
   width: 30%;
+  margin-bottom: 10%;
+  height: 5vh;
+  width: 30vw;
+  font-size: 4vw;
+}
+
+.inputcounterinner::placeholder{
+  font-size: 3vw;
 }
 
 .buttonconfirmtoken{
@@ -419,6 +468,37 @@ body {
   height: 50%;
   width: 50%;
   font-size: 4vh;
+}
+
+.selectplayercolor{
+  margin-bottom: 10%;
+  height: 5vh;
+  width: 40vh;
+  font-size: 4vw;
+}
+
+.selectgametype{
+  margin-bottom: 10%;
+  height: 5vh;
+  width: 40vh;
+  font-size: 4vw;
+}
+
+.showwinnerholder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.showwinnertext{
+  margin-bottom: 5%;
+}
+
+.heroquote{
+  margin-bottom: 5%;
+  font-style: italic;
+  font-size: 1.8vh;
 }
 
 #root{

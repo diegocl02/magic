@@ -4,18 +4,23 @@ import './App.css';
 import Player from './player';
 import {GameSetup} from './game/gamesetup';
 import {TokenCom} from './game/tokenCom';
+import {Observable} from 'rxjs';
+import braids from './img/braids1.png'
 
 class App extends Component {
+
+
     constructor(props){
       super(props);
+      this.subscription = null;
       this.state = {
         winnerPopUp: false,
         tokenPopUp: false,
         createTokenPopUp: false,
         name:null,
         tokenid: null,
-        counter: null,
-        tokentype: "planeswalker"
+        counter: "",
+        tokentype: "planeswalker",
     }
   }
 
@@ -36,6 +41,9 @@ class App extends Component {
 
     prepareTokenWithModal(name,tokenid) {
       this.setState({createTokenPopUp: true, name, tokenid});
+      this.subscription = Observable.timer(10000).
+      do(() => this.setState({createTokenPopUp: false}))
+      .subscribe();
       //this.props.setWinner(this.props.playername);}
     }
 
@@ -112,7 +120,8 @@ class App extends Component {
                   () => {this.props.addToken(
                     this.state.name,parseInt(this.state.counter),this.state.tokenid,this.state.tokentype);
                   this.setState({createTokenPopUp: false});
-                console.log(this.state.name,parseInt(this.state.counter),this.state.tokenid,this.state.tokentype)}
+                  this.subscription.unsubscribe();}
+              //DEBUG console.log(this.state.name,parseInt(this.state.counter),this.state.tokenid,this.state.tokentype)}
               }>Create Token!</button>
               </div>
 
@@ -122,8 +131,31 @@ class App extends Component {
     }
 
   render() {
-      console.log(this.props.players.tokens,this.state.tokenid,this.state.name);
-      if(!(this.props.players[0].turn) && !(this.props.players[1].turn)){
+      console.log(this.props);
+      if(this.props.someonewon!=false){
+        return(
+          <div className="showwinnerholder">
+            <div className="showwinnertext">
+              {this.props.someonewon} Won the Game!
+            </div>
+            <div>
+              <img className='braids' src={braids}></img>
+            </div>
+            <div className="heroquote">
+              Braids: I'm so proud of you, My son!
+            </div>
+            <div className="buttonrematch">
+              <button onClick={() => {
+                this.props.players[0].turn=false;
+                this.props.players[1].turn=false; //WHY? this and not below
+                // this.props.someonewon=false;
+                this.props.setTurn(this.props.gametype,this.props.players[0].color,this.props.players[1].color);
+              }}>Rematch!</button>
+            </div>
+          </div>
+        )
+      }
+      else if(!(this.props.players[0].turn) && !(this.props.players[1].turn)){
         return(
           <GameSetup
             players={this.props.players}
@@ -135,9 +167,9 @@ class App extends Component {
         {this.state.winnerPopUp ? this.createModal() : null}
         {this.state.tokenPopUp ? this.createChangeTokenModal() : null}
         {this.state.createTokenPopUp ? this.createPrepareTokenModal() : null}
-        {this.createPlayerCard(this.props.players[0],"mscreen1",true,"player1")}
+        {this.createPlayerCard(this.props.players[0],"mscreen1",true,"player")}
         <div className="divisor"></div>
-        {this.createPlayerCard(this.props.players[1],"mscreen2",false,"player2")}
+        {this.createPlayerCard(this.props.players[1],"mscreen2",false,"player")}
       </div>
     );
   }
@@ -145,7 +177,7 @@ class App extends Component {
   createPlayerCard(player, clase, isrotate,classplayer){
     const content = <Player
       player={player}
-      classplayer={classplayer}
+      classplayer={player.color+classplayer}
       setWinner={()=>this.setWinnerWithModal(player.name)}
       changeLife={this.props.changeLife}
     />;
