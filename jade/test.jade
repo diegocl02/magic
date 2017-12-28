@@ -1,0 +1,41 @@
+doctype
+
+html
+
+head
+  title Diego test
+
+  body
+
+    div
+      p First Paragraph
+
+      p
+        |block of information
+        br
+        |second block of information
+
+      p.
+        another paragraph.
+
+      p(id="4th", class="test")
+        Another paragraph with class and id.
+
+      #2nd_div.loren_ipsum.very_import
+        And this paragraph?
+
+      ul
+        li#bbp_list_item
+          a(href='#') Diego
+        li#bbp_list_item
+          a(href='#') Walter
+
+      ul
+        li#hero_list_itel: a(href="#") Batman
+        li#hero_list_itel: a(href="#") Diego
+
+      - myName = "diego"
+
+      p Hello #{myName}
+
+      p 1234 * 1234 #{1234 * 1234}

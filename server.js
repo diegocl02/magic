@@ -20,6 +20,10 @@ app.get('/about', function (req, res) {
   res.sendFile(path.join(__dirname,  'static/about.html'));
 })
 
+app.get('/test', function (req, res) {
+  res.sendFile(path.join(__dirname,  'jade/test.html'));
+})
+
 /////// ENDPOINTS
 
 /////Updates Number of total Wins
