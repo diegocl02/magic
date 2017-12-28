@@ -4,8 +4,7 @@ app_name="mini-magic"
 commit_msg="deployment"
 repo_branch="master"
 
-echo -e "-->Starting Deployment on Heroku for "
-echo -e "$app_name<--"
+echo -e "-->Starting Deployment on Heroku for $app_name<--"
  
 #Move to the compiled fodler
 #cd dist

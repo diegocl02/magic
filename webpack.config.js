@@ -1,9 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var BUILD_DIR = path.resolve(__dirname, 'src/');
+var BUILD_DIR = path.resolve(__dirname, 'dist/');
 var APP_DIR = path.resolve(__dirname, 'src');
-var SRC_DIR = path.resolve(__dirname);
 
 const commonConfig = {
     resolve: { extensions: ['.js', '.jsx'] },
@@ -37,7 +36,7 @@ var config_server = {
 
   output: {
     filename: 'server.bundle.js',
-    path: __dirname,
+    path: BUILD_DIR,
     publicPath: "/"
   },
   resolve: {
