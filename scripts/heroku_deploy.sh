@@ -1,8 +1,32 @@
 set -e
 
-app_name="mini-magic"
 commit_msg="deployment"
-repo_branch="master"
+
+for ARG in "$@"
+do
+	KEY=$(echo $ARG | cut -f1 -d=)
+    	VALUE=$(echo $ARG | cut -f2 -d=)
+    	
+    	case "$KEY" in
+		--app-name) app_name=${VALUE} ;;
+		--repo-branch) repo_branch=${VALUE} ;;
+		*)
+	esac
+done
+
+validate_arg(){
+    if [ -z "$1" ]; then
+	echo "Not all arguments provided; check that --app-name= and --repo-branch= are there!"
+	echo "Aborting scripts.."
+	exit 1
+	fi
+}
+
+echo "App Name is : $app_name"
+echo "Branch Name is : $repo_branch"
+
+validate_arg $app_name
+validate_arg $repo_branch
 
 echo -e "-->Starting Deployment on Heroku for $app_name<--"
  
