@@ -13194,9 +13194,6 @@ const path = __webpack_require__(3);
 const bodyParser = __webpack_require__(45);
 const app = express();
 
-const PORT = 3000;
-
-console.log(__dirname);
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json()); // to support JSON body
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -13220,7 +13217,7 @@ app.get('/test', function (req, res) {
 
 /////Updates Number of total Wins
 app.post('/updatewins', function(req,res){
-  console.log(req.body.userid);
+  console.log("updated in database", req.body.userid);
   const userid = req.body.userid;
   const query = 'update User set gamesWon=gamesWon +1, ranking=ranking +3'+
   ' where userId='+userid+';';
@@ -13275,8 +13272,8 @@ app.get('/getinitialstate', function (req, res) {
 
 /// SERVER START WITH node serve.js
 
-app.listen(PORT, function () {
-  console.log('Example app listening on port '+PORT+'!')
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Magic app listening on port '+PORT+'!')
 })
 
 

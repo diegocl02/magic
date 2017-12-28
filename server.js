@@ -3,8 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const app = express();
 
-const PORT = 3000;
-
 app.use(express.static(path.join(__dirname)));
 app.use(bodyParser.json()); // to support JSON body
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -83,6 +81,6 @@ app.get('/getinitialstate', function (req, res) {
 
 /// SERVER START WITH node serve.js
 
-app.listen(PORT, function () {
-  console.log('Example app listening on port '+PORT+'!')
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Magic app listening on port '+PORT+'!')
 })
