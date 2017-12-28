@@ -3,8 +3,58 @@ var path = require('path');
 
 var BUILD_DIR = path.resolve(__dirname, 'src/');
 var APP_DIR = path.resolve(__dirname, 'src');
+var SRC_DIR = path.resolve(__dirname);
 
-var config = {
+const commonConfig = {
+    resolve: { extensions: ['.js', '.jsx'] },
+
+    externals: { /*"jquery": "jQuery"*/ },
+
+    plugins: [
+    ],
+
+    //devtool: "inline-source-map",
+    //devtool: "inline-eval-cheap-source-map",
+
+    cache: true,
+
+    module: {
+        rules: [
+            {
+                enforce: "pre",
+                test: /\.js$/,
+            }
+        ]
+    }
+}
+
+var config_server = {
+  name : "serverConfig",
+
+  ...commonConfig,
+
+  entry: __dirname + '/server.js',
+
+  output: {
+    filename: 'server.bundle.js',
+    path: __dirname,
+    publicPath: "/"
+  },
+  resolve: {
+    extensions: ['.js', '.json']
+  },
+  node: {
+    console: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    __dirname : false
+  },
+
+  target: 'node'
+}
+
+var config_client = {
   entry: APP_DIR + '/index.js',
   output: {
     path: BUILD_DIR,
@@ -53,4 +103,4 @@ var config = {
 
 };
 
-module.exports = config;
+module.exports = [config_client, config_server];

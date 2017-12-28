@@ -28,7 +28,7 @@ app.get('/test', function (req, res) {
 
 /////Updates Number of total Wins
 app.post('/updatewins', function(req,res){
-  console.log(req.body.userid);
+  console.log("updated in database", req.body.userid);
   const userid = req.body.userid;
   const query = 'update User set gamesWon=gamesWon +1, ranking=ranking +3'+
   ' where userId='+userid+';';
