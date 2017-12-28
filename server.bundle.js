@@ -13273,7 +13273,7 @@ app.get('/getinitialstate', function (req, res) {
 /// SERVER START WITH node serve.js
 
 app.listen(process.env.PORT || 3000, function () {
-  console.log('Magic app listening on port '+PORT+'!')
+  console.log('Magic app Started!')
 })
 
 
