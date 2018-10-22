@@ -32,7 +32,7 @@
     "start": "node dist/server.bundle.js",
     "start-dev": "node node_modules/concurrently/src/main.js  \"npm start\" \"node scripts/openbrowser.js\"",
     "deploy": "bash scripts/heroku_deploy.sh",
-    "build": "",
+    "build": "webpack",
     "test": "",
     "eject": ""
   },

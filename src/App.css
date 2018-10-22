@@ -320,8 +320,7 @@ body {
 .buttonrandom{
   margin-bottom: 10%;
   height: 6vh;
-  width: 45vw;
-  font-size: 4vw;
+  font-size: 4vh;
 }
 
 /* Token Css*/
@@ -473,15 +472,14 @@ body {
 .selectplayercolor{
   margin-bottom: 10%;
   height: 5vh;
-  width: 40vh;
-  font-size: 4vw;
+  font-size: 4vh;
 }
 
 .selectgametype{
   margin-bottom: 10%;
   height: 5vh;
   width: 40vh;
-  font-size: 4vw;
+  font-size: 4vh;
 }
 
 .showwinnerholder{
